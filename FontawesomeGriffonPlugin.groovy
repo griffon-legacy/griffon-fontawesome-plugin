@@ -46,7 +46,7 @@ class FontawesomeGriffonPlugin {
             email: 'aalmiray@yahoo.com'
         ]
     ]
-    String title = "Marc James' Silk icon set"
+    String title = "FontAwesome icon support"
     String description = '''
 Provides a shortcut for adding icons based on [Font-Awesome][1]. This plugin is
 inspired in the work done by [Mario Torre][2] and [Jens Deters][3].
@@ -61,6 +61,7 @@ plugin
 | ----------- | ---------- | ------ | ----------- | ---------- |
 | fontAwesome | icon       | String |             | no         |
 |             | size       | int    | 16          | no         |
+|             | color      | Color  | Color.BLACK | no         |
 
 Valid values for `icon` can be obtained by running **fontawesome-icon-selector**
 and inspecting the tooltip of the chosen icon. `FontAwesome` is automatically

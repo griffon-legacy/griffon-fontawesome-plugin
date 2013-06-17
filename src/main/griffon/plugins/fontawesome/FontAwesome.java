@@ -384,6 +384,29 @@ public enum FontAwesome {
     ICON_WEIBO("icon-weibo", '\uf18a'),
     ICON_RENREN("icon-renren", '\uf18b');*/
 
+    /*
+    public static enum Modifier {
+        NONE,
+        ROTATE_90,
+        ROTATE_180,
+        ROTATE_270,
+        FLIP_HORIZONTAL,
+        FLIP_VERTICAL;
+
+        public static Modifier decode(String str) {
+            if (GriffonNameUtils.isBlank(str)) {
+                throw new IllegalArgumentException("Font-Awesome modifier cannot be null!");
+            }
+            for (Modifier mod : values()) {
+                if (mod.name().equals(str.toUpperCase().replace('-', '_'))) {
+                    return mod;
+                }
+            }
+            throw new IllegalArgumentException("Font-Awesome modifier " + str + " is invalid!");
+        }
+    }
+    */
+
     public static FontAwesome findByDescription(String description) {
         if (GriffonNameUtils.isBlank(description)) {
             throw new IllegalArgumentException("Icon description cannot be null!");

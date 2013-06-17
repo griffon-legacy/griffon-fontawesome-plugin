@@ -21,10 +21,18 @@ package griffon.plugins.fontawesome
  */
 class FontAwesomeIconFactory extends AbstractFactory {
     public Object newInstance(FactoryBuilderSupport builder, Object name, Object value, Map attributes) {
-        String icon = attributes.remove('icon') ?: value
+        String iconName = attributes.remove('icon') ?: value
 
-        if (!icon) throw new IllegalArgumentException("In $name you must define a node value or icon:")
-
-        new FontAwesomeIcon(icon)
+        if (!iconName) throw new IllegalArgumentException("In $name you must define a node value or icon:")
+        /*
+        def modifier = attributes.remove('modifier')
+        if (modifier != null) {
+            if (modifier instanceof CharSequence) {
+                modifier = FontAwesome.Modifier.decode(modifier.toString())
+            }
+            attributes.modifier = modifier
+        }
+        */
+        new FontAwesomeIcon(iconName)
     }
 }

@@ -31,12 +31,15 @@ import java.io.InputStream;
 public class FontAwesomeIcon implements Icon {
     private static final String AWESOME_SET = "META-INF/resources/webjars/font-awesome/3.1.1/font/fontawesome-webfont.ttf";
 
+    private static final Font awesome;
+    private static final Object LOCK = new Object[0];
+
     private int size;
     private BufferedImage buffer;
 
     private FontAwesome id;
-    private static final Font awesome;
-
+    // private FontAwesome.Modifier modifier = FontAwesome.Modifier.NONE;
+    private Color color = Color.BLACK;
     private Font font;
 
     static {
@@ -61,25 +64,42 @@ public class FontAwesomeIcon implements Icon {
         this(FontAwesome.findByDescription(description));
     }
 
-    public synchronized void paintIcon(Component c, Graphics g, int x, int y) {
-        if (buffer == null) {
-            buffer = new BufferedImage(getIconWidth(), getIconHeight(),
-                BufferedImage.TYPE_INT_ARGB);
+    public void paintIcon(Component c, Graphics g, int x, int y) {
+        synchronized (LOCK) {
+            if (buffer == null) {
+                buffer = new BufferedImage(getIconWidth(), getIconHeight(),
+                    BufferedImage.TYPE_INT_ARGB);
 
-            Graphics2D graphics = (Graphics2D) buffer.getGraphics();
-            graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                RenderingHints.VALUE_ANTIALIAS_ON);
+                Graphics2D g2 = (Graphics2D) buffer.getGraphics();
+                g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                    RenderingHints.VALUE_ANTIALIAS_ON);
 
-            graphics.setFont(font);
-            graphics.setColor(Color.BLACK);
+                g2.setFont(font);
+                g2.setColor(color);
 
-            int sy = size - (size / 4) + (size/16);
-            graphics.drawString(String.valueOf(id.getCode()), 0, sy);
+                /*
+                switch (modifier) {
+                    case ROTATE_90:
+                        g2.rotate(Math.toRadians(90d), size/2, size/2);
+                        break;
+                    case ROTATE_180:
+                        g2.rotate(Math.toRadians(180d), size/2, size/2);
+                        break;
+                    case ROTATE_270:
+                        g2.rotate(Math.toRadians(270d), size/2, size/2);
+                        break;
+                    default:
+                }
+                */
 
-            graphics.dispose();
+                int sy = size - (size / 4) + (size / 16);
+                g2.drawString(String.valueOf(id.getCode()), 0, sy);
+
+                g2.dispose();
+            }
+
+            g.drawImage(buffer, x, y, null);
         }
-
-        g.drawImage(buffer, x, y, null);
     }
 
     public int getSize() {
@@ -90,8 +110,35 @@ public class FontAwesomeIcon implements Icon {
         if (size > 0) {
             this.size = size;
             font = awesome.deriveFont(Font.PLAIN, size);
+            synchronized (LOCK) {
+                buffer = null;
+            }
         }
     }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+        synchronized (LOCK) {
+            buffer = null;
+        }
+    }
+
+    /*
+    public FontAwesome.Modifier getModifier() {
+        return modifier;
+    }
+
+    public void setModifier(FontAwesome.Modifier modifier) {
+        this.modifier = modifier != null ? modifier : FontAwesome.Modifier.NONE;
+        synchronized (LOCK) {
+            buffer = null;
+        }
+    }
+    */
 
     public int getIconHeight() {
         return size;
