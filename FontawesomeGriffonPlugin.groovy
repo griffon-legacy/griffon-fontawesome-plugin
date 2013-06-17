@@ -57,11 +57,11 @@ Usage
 The following nodes will become available on a View script upon installing this
 plugin
 
-| *Node*      | *Property* | *Type* | *Default*   | *Bindable* |
-| ----------- | ---------- | ------ | ----------- | ---------- |
-| fontAwesome | icon       | String |             | no         |
-|             | size       | int    | 16          | no         |
-|             | color      | Color  | Color.BLACK | no         |
+| *Node*          | *Property* | *Type* | *Default*   | *Bindable* |
+| --------------- | ---------- | ------ | ----------- | ---------- |
+| fontAwesomeIcon | icon       | String |             | no         |
+|                 | size       | int    | 16          | no         |
+|                 | color      | Color  | Color.BLACK | no         |
 
 Valid values for `icon` can be obtained by running **fontawesome-icon-selector**
 and inspecting the tooltip of the chosen icon. `FontAwesome` is automatically
