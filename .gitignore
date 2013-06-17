@@ -1,0 +1,8 @@
+target
+target
+staging
+*.iml
+*.ipr
+*.iws
+.idea
+.gradle
