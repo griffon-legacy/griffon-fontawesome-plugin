@@ -324,7 +324,7 @@ public enum FontAwesome {
     ICON_CHECK_SIGN("icon-check-sign", '\uf14a'),
     ICON_EDIT_SIGN("icon-edit-sign", '\uf14b'),
     ICON_EXTERNAL_LINK_SIGN("icon-external-link-sign", '\uf14c'),
-    ICON_SHARE_SIGN("icon-share-sign", '\uf14d');/*,
+    ICON_SHARE_SIGN("icon-share-sign", '\uf14d'),
     ICON_COMPASS("icon-compass", '\uf14e'),
     ICON_COLLAPSE("icon-collapse", '\uf150'),
     ICON_COLLAPSE_TOP("icon-collapse-top", '\uf151'),
@@ -382,7 +382,7 @@ public enum FontAwesome {
     ICON_BUG("icon-bug", '\uf188'),
     ICON_VK("icon-vk", '\uf189'),
     ICON_WEIBO("icon-weibo", '\uf18a'),
-    ICON_RENREN("icon-renren", '\uf18b');*/
+    ICON_RENREN("icon-renren", '\uf18b');
 
     /*
     public static enum Modifier {

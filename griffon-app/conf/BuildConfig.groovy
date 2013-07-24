@@ -6,8 +6,8 @@ griffon.project.dependency.resolution = {
         mavenRepo 'http://repository.sonatype.org/content/groups/public'
     }
     dependencies {
-        build   'org.webjars:font-awesome:3.1.1-1'
-        compile 'org.webjars:font-awesome:3.1.1-1'
+        build   'org.webjars:font-awesome:3.2.1'
+        compile 'org.webjars:font-awesome:3.2.1'
     }
 }
 
