@@ -19,7 +19,7 @@
  */
 class FontawesomeGriffonPlugin {
     // the plugin version
-    String version = '1.1.0'
+    String version = '1.1.1'
     // the version or versions of Griffon the plugin is designed for
     String griffonVersion = '1.3.0 > *'
     // the other plugins this plugin depends on
@@ -64,7 +64,8 @@ plugin
 |                 | color      | Color  | Color.BLACK | no         |
 
 Valid values for `icon` can be obtained by running **fontawesome-icon-selector**
-and inspecting the tooltip of the chosen icon. `FontAwesome` is automatically
+and inspecting the tooltip of the chosen icon. You may also use any value from the
+`griffon.plugins.fontawesome.FontAwesome` enum. Font `FontAwesome` is automatically
 registered with the local GraphicsEnvironment, which means you can use it anywhere,
 for example
 

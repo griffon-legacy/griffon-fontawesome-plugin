@@ -38,7 +38,6 @@ public class FontAwesomeIcon implements Icon {
     private BufferedImage buffer;
 
     private FontAwesome id;
-    // private FontAwesome.Modifier modifier = FontAwesome.Modifier.NONE;
     private Color color = Color.BLACK;
     private Font font;
 
@@ -77,21 +76,6 @@ public class FontAwesomeIcon implements Icon {
                 g2.setFont(font);
                 g2.setColor(color);
 
-                /*
-                switch (modifier) {
-                    case ROTATE_90:
-                        g2.rotate(Math.toRadians(90d), size/2, size/2);
-                        break;
-                    case ROTATE_180:
-                        g2.rotate(Math.toRadians(180d), size/2, size/2);
-                        break;
-                    case ROTATE_270:
-                        g2.rotate(Math.toRadians(270d), size/2, size/2);
-                        break;
-                    default:
-                }
-                */
-
                 int sy = size - (size / 4) + (size / 16);
                 g2.drawString(String.valueOf(id.getCode()), 0, sy);
 
@@ -126,19 +110,6 @@ public class FontAwesomeIcon implements Icon {
             buffer = null;
         }
     }
-
-    /*
-    public FontAwesome.Modifier getModifier() {
-        return modifier;
-    }
-
-    public void setModifier(FontAwesome.Modifier modifier) {
-        this.modifier = modifier != null ? modifier : FontAwesome.Modifier.NONE;
-        synchronized (LOCK) {
-            buffer = null;
-        }
-    }
-    */
 
     public int getIconHeight() {
         return size;
